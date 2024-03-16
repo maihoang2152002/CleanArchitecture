@@ -7,8 +7,5 @@ namespace CleanArchitecture.Domain.ViewModels.Request
     {
         public Guid Id { get; set; }
         public string ModelName { get; set; }
-        public long Price { get; set; }
-        public string ModelType { get; set; }
-        public Guid? CategoryId { get; set; }
     }
 }
