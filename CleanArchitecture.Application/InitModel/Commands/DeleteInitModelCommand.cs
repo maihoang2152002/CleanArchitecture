@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,9 +6,10 @@ using System.Threading.Tasks;
 using MediatR;
 using CleanArchitecture.Domain.Entities;
 
-namespace CleanArchitecture.Application.Model.Queries
+namespace CleanArchitecture.Application.InitModel.Commands
 {
-    public class GetAllModelsQuery : IRequest<List<CleanArchitecture.Domain.Entities.Model>>
+    public class DeleteInitModelCommand : IRequest
     {
+        public Guid InitModelId { get; set; }
     }
 }

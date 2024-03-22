@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\Response\" />
+    <Folder Include="ViewInitModels\Response\" />
   </ItemGroup>
 
 

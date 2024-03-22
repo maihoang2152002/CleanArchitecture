@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
-using CleanArchitecture.Application.Model.Commands;
-using CleanArchitecture.Application.Model.Queries;
+using CleanArchitecture.Application.InitModel.Commands;
+using CleanArchitecture.Application.InitModel.Queries;
 using System;
 using System.Collections.Generic;
 using System.Linq;

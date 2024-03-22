@@ -18,11 +18,11 @@ namespace CleanArchitecture.Infrastructure.Repository
             _logger = logger;
         }
 
-        public DbSet<Model> Model { get; set; }
+        public DbSet<InitModel> InitModel { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder InitModelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new ModelConfiguration());
+            InitModelBuilder.ApplyConfiguration(new InitModelConfiguration());
         }
     }
 }

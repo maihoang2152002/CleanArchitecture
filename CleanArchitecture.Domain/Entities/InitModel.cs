@@ -4,10 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CleanArchitecture.Domain.Entities
 {
-    public class Model
+    public class InitModel
     {
         [Key]
         public Guid Id { get; set; }
-        public string ModelName { get; set; }
+        public string InitModelName { get; set; }
     }
 }

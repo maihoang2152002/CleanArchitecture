@@ -45,7 +45,7 @@ namespace CleanArchitecture.Domain.Middleware
 
             switch (exception)
             {
-                case ModelNotFoundException e:
+                case InitModelNotFoundException e:
                     response.StatusCode = (int)HttpStatusCode.BadRequest;
                     response.Message = exception.Message;
                     break;

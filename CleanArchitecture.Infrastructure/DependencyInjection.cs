@@ -10,7 +10,7 @@ namespace CleanArchitecture.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped<IModelRepository, ModelRepository>();
+            services.AddScoped<IInitModelRepository, InitModelRepository>();
 
             var cs = configuration.GetConnectionString("Default");
             //services.AddDbContext<CleanArchitectureDbContext>(opt => opt.UseSqlServer(cs));
