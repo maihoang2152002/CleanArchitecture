@@ -10,7 +10,7 @@ namespace CleanArchitecture.Domain.CustomException
     [Serializable]
     public class InitModelNotFoundException : Exception
     {
-        public Guid InitModelId { get; set; }
+        public Guid Id { get; set; }
         public string InitModelName { get; set; }
 
         private const string DefaultMessage = "InitModel does not exist.";
@@ -29,16 +29,14 @@ namespace CleanArchitecture.Domain.CustomException
 
         }
 
-        public InitModelNotFoundException(Guid InitModelId, string InitModelName) : this($"InitModel does not exist with ID: '{InitModelId}' and Name: '{InitModelName}'.")
+        public InitModelNotFoundException(Guid Id, string InitModelName) : this($"InitModel does not exist with ID: '{Id}' and Name: '{InitModelName}'.")
         {
-            InitModelId = InitModelId;
-            InitModelName = InitModelName;
         }
 
         // This protected constructor is used for deserialization.
         protected InitModelNotFoundException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
-            InitModelId = (Guid)info.GetValue(nameof(InitModelId), typeof(Guid));
+            Id = (Guid)info.GetValue(nameof(Id), typeof(Guid));
             InitModelName = (string)info.GetValue(nameof(InitModelName), typeof(string));
         }
 
@@ -48,7 +46,7 @@ namespace CleanArchitecture.Domain.CustomException
             // Change the case of two properties, and then use the
             // method of the base class.
             base.GetObjectData(info, context);
-            info.AddValue(nameof(InitModelId), InitModelId, typeof(Guid));
+            info.AddValue(nameof(Id), Id, typeof(Guid));
             info.AddValue(nameof(InitModelName), InitModelName, typeof(string));
         }
     }

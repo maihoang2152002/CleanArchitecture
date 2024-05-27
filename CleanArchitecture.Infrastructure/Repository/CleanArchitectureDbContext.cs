@@ -1,28 +1,35 @@
-﻿using CleanArchitecture.Domain.Entities;
-using CleanArchitecture.Domain.Entities.Configuration;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CleanArchitecture.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
-namespace CleanArchitecture.Infrastructure.Repository
+namespace CleanArchitecture.Infrastructure.Repository;
+
+public partial class CleanArchitectureDbContext : DbContext
 {
-    public class CleanArchitectureDbContext : DbContext
+    public CleanArchitectureDbContext()
     {
-        private readonly ILogger<CleanArchitectureDbContext> _logger;
-        public CleanArchitectureDbContext(DbContextOptions options, ILogger<CleanArchitectureDbContext> logger) : base(options)
-        {
-            _logger = logger;
-        }
-
-        public DbSet<InitModel> InitModel { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder InitModelBuilder)
-        {
-            InitModelBuilder.ApplyConfiguration(new InitModelConfiguration());
-        }
     }
+
+    public CleanArchitectureDbContext(DbContextOptions<CleanArchitectureDbContext> options)
+        : base(options)
+    {
+    }
+
+    public virtual DbSet<InitModel> InitModels { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseSqlite("Name=ConnectionStrings:Default");
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<InitModel>(entity =>
+        {
+            entity.ToTable("InitModel");
+        });
+
+        OnModelCreatingPartial(modelBuilder);
+    }
+
+    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

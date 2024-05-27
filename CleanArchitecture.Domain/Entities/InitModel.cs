@@ -1,13 +1,11 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
-namespace CleanArchitecture.Domain.Entities
+namespace CleanArchitecture.Domain.Entities;
+
+public partial class InitModel
 {
-    public class InitModel
-    {
-        [Key]
-        public Guid Id { get; set; }
-        public string InitModelName { get; set; }
-    }
+    public Guid Id { get; set; }
+
+    public string InitModelName { get; set; }
 }

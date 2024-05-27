@@ -24,38 +24,38 @@ namespace CleanArchitecture.Infrastructure.Repository
 
         public async Task<InitModel> AddInitModel(InitModel InitModel)
         {
-            _context.InitModel.Add(InitModel);
+            _context.InitModels.Add(InitModel);
             await _context.SaveChangesAsync();
             return InitModel;
         }
 
         public async Task DeleteInitModel(Guid InitModelId)
         {
-            var InitModel = _context.InitModel.FirstOrDefault(p => p.Id == InitModelId);
+            var InitModel = _context.InitModels.FirstOrDefault(p => p.Id == InitModelId);
             if (InitModel == null)
             {
                 throw new InitModelNotFoundException(InitModelId, string.Empty);
             }
-            _context.InitModel.Remove(InitModel);
+            _context.InitModels.Remove(InitModel);
             await _context.SaveChangesAsync();
         }
 
         public async Task<ICollection<InitModel>> GetAll()
         {
-            var InitModels = await _context.InitModel.ToListAsync();
+            var InitModels = await _context.InitModels.ToListAsync();
 
             return InitModels;
         }
 
         public async Task<InitModel> GetInitModelById(Guid InitModelId)
         {
-            var InitModel = await _context.InitModel.FirstOrDefaultAsync(p => p.Id == InitModelId);
+            var InitModel = await _context.InitModels.FirstOrDefaultAsync(p => p.Id == InitModelId);
             return InitModel;
         }
 
         public async Task<InitModel> UpdateInitModel(Guid id, string name)
         {
-            var InitModel = await _context.InitModel.FirstOrDefaultAsync(p => p.Id == id);
+            var InitModel = await _context.InitModels.FirstOrDefaultAsync(p => p.Id == id);
             if (InitModel == null)
             {
                 throw new InitModelNotFoundException(id, name);
@@ -63,7 +63,7 @@ namespace CleanArchitecture.Infrastructure.Repository
 
             InitModel.InitModelName = name;
 
-            _context.InitModel.Update(InitModel);
+            _context.InitModels.Update(InitModel);
             await _context.SaveChangesAsync();
 
             return InitModel;
