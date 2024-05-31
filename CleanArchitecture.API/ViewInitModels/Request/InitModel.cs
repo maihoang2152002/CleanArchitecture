@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace CleanArchitecture.Domain.ViewInitModels.Request
+namespace CleanArchitecture.API.ViewInitModels.Request
 {
     public class InitModel
     {

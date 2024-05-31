@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace CleanArchitecture.Domain.Middleware
+namespace CleanArchitecture.API.Middleware
 {
     public class ErrorResponse
     {

@@ -24,7 +24,7 @@ namespace CleanArchitecture.Application.InitModel.CommandHandlers
 
         public async Task<Domain.Entities.InitModel> Handle(UpdateInitModelCommand request, CancellationToken cancellationToken)
         {
-            return await _InitModelRepository.UpdateInitModel(request.InitModelId, request.InitModelName);
+            return await _InitModelRepository.UpdateInitModel(request.InitModel);
         }
 
     }

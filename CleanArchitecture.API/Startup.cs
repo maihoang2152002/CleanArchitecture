@@ -1,4 +1,4 @@
-using CleanArchitecture.Domain.Middleware;
+using CleanArchitecture.API.Middleware;
 using CleanArchitecture.Application;
 using CleanArchitecture.Infrastructure;
 using Microsoft.AspNetCore.Builder;
@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 using Microsoft.OpenApi.Models;
 using CleanArchitecture.API.Filter;
 
-namespace CleanArchitecture.Domain
+namespace CleanArchitecture.API
 {
     public class Startup
     {

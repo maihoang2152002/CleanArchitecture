@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CleanArchitecture.Domain.Controllers
+namespace CleanArchitecture.API.Controllers
 {
     [ApiController]
     [Route("api/InitModel")]
@@ -42,16 +42,16 @@ namespace CleanArchitecture.Domain.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<IActionResult> Create([FromBody] CleanArchitecture.Domain.ViewInitModels.Request.InitModel InitModel)
+        public async Task<IActionResult> Create([FromBody] CleanArchitecture.Domain.Entities.InitModel InitModel)
         {
-            var InitModels = await _mediator.Send(new CreateInitModelCommand { InitModelName = InitModel.InitModelName });
+            var InitModels = await _mediator.Send(new CreateInitModelCommand { InitModel = InitModel });
             return Ok(InitModels);
         }
-
+        
         [HttpPut("update")]
-        public async Task<IActionResult> Update([FromBody] CleanArchitecture.Domain.ViewInitModels.Request.InitModel InitModel)
+        public async Task<IActionResult> Update([FromBody] CleanArchitecture.Domain.Entities.InitModel InitModel)
         {
-            var InitModels = await _mediator.Send(new UpdateInitModelCommand { InitModelId = InitModel.Id, InitModelName = InitModel.InitModelName });
+            var InitModels = await _mediator.Send(new UpdateInitModelCommand { InitModel = InitModel });
             return Ok(InitModels);
         }
 

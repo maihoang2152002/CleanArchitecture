@@ -53,17 +53,17 @@ namespace CleanArchitecture.Infrastructure.Repository
             return InitModel;
         }
 
-        public async Task<InitModel> UpdateInitModel(string id, string name)
+        public async Task<InitModel> UpdateInitModel(InitModel InitModel)
         {
-            var InitModel = await _context.InitModels.FirstOrDefaultAsync(p => p.Id == id);
-            if (InitModel == null)
+            var check = await _context.InitModels.FirstOrDefaultAsync(p => p.Id == InitModel.Id);
+            if (check == null)
             {
-                throw new InitModelNotFoundException(id, name);
+                throw new InitModelNotFoundException(InitModel.Id, string.Empty);
             }
 
-            //InitModel.InitModelName = name;
+            //check = InitModel;
 
-            _context.InitModels.Update(InitModel);
+            _context.InitModels.Update(check);
             await _context.SaveChangesAsync();
 
             return InitModel;

@@ -10,7 +10,7 @@ using System.Resources;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace CleanArchitecture.Domain.Middleware
+namespace CleanArchitecture.API.Middleware
 {
     // Middleware defined with the conventional Approach. You need not have to register the middleware as Transient dependency when going with conventional approach
     public class ExceptionMiddleware

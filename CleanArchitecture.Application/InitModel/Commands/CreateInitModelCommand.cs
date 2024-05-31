@@ -9,6 +9,6 @@ namespace CleanArchitecture.Application.InitModel.Commands
 {
     public class CreateInitModelCommand : IRequest<CleanArchitecture.Domain.Entities.InitModel>
     {
-        public string InitModelName { get; set; }
+        public CleanArchitecture.Domain.Entities.InitModel InitModel { get; set; }
     }
 }

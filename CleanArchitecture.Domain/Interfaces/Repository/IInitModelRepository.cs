@@ -15,7 +15,7 @@ namespace CleanArchitecture.Domain.Interfaces.Repository
 
         Task<InitModel> AddInitModel(InitModel InitModel);
 
-        Task<InitModel> UpdateInitModel(string Id, string name);
+        Task<InitModel> UpdateInitModel(InitModel InitModel);
 
         Task DeleteInitModel(string InitModelId);
     }

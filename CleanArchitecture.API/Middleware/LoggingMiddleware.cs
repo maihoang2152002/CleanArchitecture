@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CleanArchitecture.Domain.Middleware
+namespace CleanArchitecture.API.Middleware
 {
     // Middleware defined using IMiddleware. You have to register the middleware as Transient dependency in startup.
     public class LoggingMiddleware : IMiddleware
