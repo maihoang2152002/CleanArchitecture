@@ -29,7 +29,7 @@ namespace CleanArchitecture.Infrastructure.Repository
             return InitModel;
         }
 
-        public async Task DeleteInitModel(Guid InitModelId)
+        public async Task DeleteInitModel(string InitModelId)
         {
             var InitModel = _context.InitModels.FirstOrDefault(p => p.Id == InitModelId);
             if (InitModel == null)
@@ -47,13 +47,13 @@ namespace CleanArchitecture.Infrastructure.Repository
             return InitModels;
         }
 
-        public async Task<InitModel> GetInitModelById(Guid InitModelId)
+        public async Task<InitModel> GetInitModelById(string InitModelId)
         {
             var InitModel = await _context.InitModels.FirstOrDefaultAsync(p => p.Id == InitModelId);
             return InitModel;
         }
 
-        public async Task<InitModel> UpdateInitModel(Guid id, string name)
+        public async Task<InitModel> UpdateInitModel(string id, string name)
         {
             var InitModel = await _context.InitModels.FirstOrDefaultAsync(p => p.Id == id);
             if (InitModel == null)
@@ -61,7 +61,7 @@ namespace CleanArchitecture.Infrastructure.Repository
                 throw new InitModelNotFoundException(id, name);
             }
 
-            InitModel.InitModelName = name;
+            //InitModel.InitModelName = name;
 
             _context.InitModels.Update(InitModel);
             await _context.SaveChangesAsync();

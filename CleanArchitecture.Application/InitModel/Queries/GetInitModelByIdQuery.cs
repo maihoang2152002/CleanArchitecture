@@ -10,6 +10,6 @@ namespace CleanArchitecture.Application.InitModel.Queries
 {
     public class GetInitModelByIdQuery : IRequest<CleanArchitecture.Domain.Entities.InitModel>
     {
-        public Guid InitModelId { get; set; }
+        public string InitModelId { get; set; }
     }
 }

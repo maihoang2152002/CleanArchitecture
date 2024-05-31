@@ -11,12 +11,12 @@ namespace CleanArchitecture.Domain.Interfaces.Repository
     {
         Task<ICollection<InitModel>> GetAll();
 
-        Task<InitModel> GetInitModelById(Guid InitModelId);
+        Task<InitModel> GetInitModelById(string InitModelId);
 
         Task<InitModel> AddInitModel(InitModel InitModel);
 
-        Task<InitModel> UpdateInitModel(Guid Id, string name);
+        Task<InitModel> UpdateInitModel(string Id, string name);
 
-        Task DeleteInitModel(Guid InitModelId);
+        Task DeleteInitModel(string InitModelId);
     }
 }

@@ -25,7 +25,7 @@ namespace CleanArchitecture.Domain.Controllers
         }
 
         [HttpGet("getbyid")]
-        public async Task<IActionResult> GetById([FromQuery] Guid InitModelId)
+        public async Task<IActionResult> GetById([FromQuery] string InitModelId)
         {
             var InitModel = await _mediator.Send(new GetInitModelByIdQuery { InitModelId = InitModelId });
 
@@ -56,7 +56,7 @@ namespace CleanArchitecture.Domain.Controllers
         }
 
         [HttpDelete("delete")]
-        public async Task<IActionResult> Delete([FromQuery] Guid InitModelId)
+        public async Task<IActionResult> Delete([FromQuery] string InitModelId)
         {
             await _mediator.Send(new DeleteInitModelCommand { InitModelId = InitModelId });
             return Ok();

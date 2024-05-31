@@ -10,6 +10,6 @@ namespace CleanArchitecture.Application.InitModel.Commands
 {
     public class DeleteInitModelCommand : IRequest
     {
-        public Guid InitModelId { get; set; }
+        public string InitModelId { get; set; }
     }
 }
