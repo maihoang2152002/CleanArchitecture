@@ -40,6 +40,18 @@ namespace CleanArchitecture.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CleanArchitectureAPI", Version = "v1" });
                 c.SchemaFilter<RemovePropSwaggerSchemaFilter>();
             });
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder =>
+                    {
+                        builder
+                            .WithOrigins("http://localhost:3000")// Enter your url UI frontend
+                            .AllowCredentials()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
