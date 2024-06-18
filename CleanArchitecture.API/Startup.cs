@@ -61,6 +61,9 @@ namespace CleanArchitecture.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("AllowSpecificOrigin");
+            
             app.UseMiddleware<LoggingMiddleware>();
             app.UseMiddleware<ExceptionMiddleware>();
             app.UseSwagger();
